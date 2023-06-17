@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boot demo</title>
+   
+  </head>
+  <body>
+    <h1>Machane</h1>
+      <form method="POST" action="/submit">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+{%for items in todoitems%}
+
+ <p>{{items.id }} : {{items.title }}
+{%if items.complete == False%}Not complete
+{%else%}
+Completed
+{%endif%}
+
+<a href="/update/{{items.id}}">Update</a>
+<a href="/delete/{{items.id}}">Delete</a> 
+</p>
+
+{%endfor%}
+
+
+  </body>
+</html>
+
